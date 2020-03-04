@@ -2,13 +2,13 @@
 
 ---
 
-## Preamble
+### Preamble
 1. <em>A system is secure if it behaves precisely in the manner intended -- and does nothing more.</em>; **Ivan Arce** - A renowned vulnerability hunter, circa 2000.
 2. <em> A system is secure if and only if it starts in a secure state and cannot enter an insecure state.</em>; **Bella-La Padula** security model - 1960.
 3. <em>A system is secure if it adequately protects information that it processes against unauthorized discolusre, unauthorized modification, and unauthorized witholding</em>.
 ---
 
-## Background
+### Background
 1. The Web has been plagued by a perplexing number, and a remarkable variety of security issues.
 2. Security flaws attributed to poor client or server implementations and arbitrary design decisions.
 3. Breakdown of the Client-Server Divide; The culprit is **__Javascript__**, a language theat offers the HTTP servers a way to delegate application logic to the browser ("client") side.
@@ -49,7 +49,7 @@ display_str(text);
 ---
 
 #### Parsing
-The parsing stage validates the syntax of the script block.
+Validates the syntax of the script block.
 
 Example 1:
 ```js
@@ -137,7 +137,7 @@ eval("alert('Hi mom!')");
 
 #### Non-HTML Document Types
 1. Plaintext files: **_Content-Type: text/plain_**
-2. Bitmap Images: JPEG, PNG, GIF, BMP; e.g. **_Content-Type: image/jpeg_**
+2. Bitmap Images: JPEG, PNG, GIF, BMP.
 3. Audio and Video
 4. XML-Based Documents.
 ```xml
@@ -188,9 +188,8 @@ The aim of some plug-ins is to provide more featured platforms for building inte
 ```
 asfunction:getURL,javascript:alert('Hi mom!')
 ```
-3. Microsoft Silverlight
-4. Sun Java: `<applet>` 
-5. ActiveX Controls
+3. Sun Java: `<applet>` 
+4. ActiveX Controls
 ```
 var sheet = new ActiveXObject("Excel.Sheet"); 
 sheet.ActiveSheet.Cells(42,42).Value = "Hi mom!"; 
@@ -222,7 +221,8 @@ sheet.Application.Quit();
 Example 1: Sample Request
 ```
 var x = XMLHttpRequest();
-x.open('GET', 'http://fuzzybunnies.com/get_message.php?id=42', false); 
+x.open('GET', 'http://fuzzybunnies.com/get_message.php?\
+id=42', false); 
 x.send(null);
 ```
 
@@ -230,7 +230,8 @@ Response Header
 ```
 GET /get_message.php?id=42 HTTP/1.0
 Host: fuzzybunnies.com
-Cookie: FUZZYBUNNIES_SESSION_ID=EA7E8167CE8B6AD93D43AC5AA869A920 Origin: http://www.bunnyoutlet.com
+Cookie: FUZZYBUNNIES_SESSION_ID=EA7E8167CE8B6AD93D43AC5AA869A920 
+Origin: http://www.bunnyoutlet.com
 ```
 
 Server data response
@@ -245,7 +246,8 @@ The secret message is: "It's a cold day for pontooning."
 1. Microsoft created _**XDomainRequest**_; a counterproposal to **_XMLHttpRequest_**;
 ```
 var x = new XDomainRequest();
-x.open("GET", "http://www.fuzzybunnies.com/get_data.php?id=1234"); 
+x.open("GET", "http://www.fuzzybunnies.com/\
+get_data.php?id=1234"); 
 x.send();
 ```
 2. Supported in IE8 and above.
@@ -260,7 +262,8 @@ x.send();
 
 Example:
 ```
-X-Content-Security-Policy: default-src 'none'; img-src http://*.example.com
+X-Content-Security-Policy: default-src 'none'; 
+img-src http://*.example.com
 ```
 ---
 
